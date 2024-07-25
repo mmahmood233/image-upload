@@ -20,15 +20,15 @@ body {
 
 .container {
     width: 100%;
-    max-width: 400px; /* Decreased from 450px */
+    max-width: 600px; /* Increased from 380px */
     margin: 0 auto;
-    padding: 20px;
+    padding: 15px; /* Slightly increased padding */
 }
 
 header {
     background-color: var(--background-color);
     border-bottom: 1px solid var(--border-color);
-    padding: 8px 0; /* Decreased from 9px */
+    padding: 10px 0;
     text-align: center;
     position: fixed;
     top: 0;
@@ -39,106 +39,62 @@ header {
 
 header h1 {
     margin: 0;
-    font-size: 23px; /* Decreased from 19px */
+    font-size: 24px; /* Increased font size */
     font-weight: bold;
     color: var(--primary-color);
 }
 
 .post {
     background-color: var(--background-color);
-    padding: 13px; /* Decreased from 14px */
-    margin-top: 60px; /* Decreased from 65px */
+    padding: 20px; /* Increased padding */
+    margin-top: 60px; /* Adjusted for larger header */
     border: 1px solid var(--border-color);
     border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 .post h2 {
     text-align: center;
-    margin-bottom: 13px; /* Decreased from 14px */
+    margin-bottom: 15px;
+    font-size: 22px; /* Increased font size */
     color: var(--text-color);
 }
 
 .post form {
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 textarea[name="postCont"] {
-    width: 97%;
-    padding: 8px; /* Decreased from 9px */
-    margin: 6px 0; /* Decreased from 7px */
+    width: 95%;
+    padding: 10px;
+    margin: 5px 0;
     border: 1px solid var(--border-color);
-    border-radius: 15px;
-    font-size: 13px; /* Decreased from 13.5px */
+    border-radius: 10px;
+    font-size: 14px; /* Increased font size */
     resize: vertical;
-    min-height: 100px;
+    min-height: 100px; /* Increased min-height */
 }
 
-input[name="catCont"] {
+.form-group {
+    margin-bottom: 15px;
+}
+
+.image-upload h3, .category-options h3 {
+    font-size: 16px; /* Increased font size */
+    margin-bottom: 8px;
+}
+
+input[type="file"] {
+    font-size: 14px;
     width: 100%;
-    padding: 8px; /* Decreased from 9px */
-    margin: 6px 0; /* Decreased from 7px */
-    border: 1px solid var(--border-color);
-    border-radius: 9999px;
-    font-size: 13px; /* Decreased from 13.5px */
-}
-
-button {
-    width: 100%;
-    padding: 8px; /* Decreased from 9px */
-    margin: 6px 0; /* Decreased from 7px */
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 9999px;
-    cursor: pointer;
-    font-size: 14px; /* Decreased from 14.5px */
-    font-weight: bold;
-    transition: background-color 0.2s;
-}
-
-button:hover {
-    background-color: #1991da;
-}
-
-button a {
-    text-decoration: none;
-    color: white;
-}
-
-footer {
-    background-color: var(--background-color);
-    color: var(--secondary-text-color);
-    text-align: center;
-    padding: 6px 0; /* Decreased from 7px */
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    border-top: 1px solid var(--border-color);
-}
-
-@media (max-width: 768px) {
-    .container {
-        width: 95%;
-    }
-}
-
-.search2 {
-    border: 1px solid var(--border-color);
-    width: 400px; /* Decreased from 450px */
-    height: 29px; /* Decreased from 30px */
-    font-size: 14px; /* Decreased from 14.5px */
     padding: 5px;
 }
 
 .category-options {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px; /* Decreased from 9px */
-    margin: 16px 0; /* Decreased from 18px */
+    gap: 10px;
 }
 
 .category-option {
@@ -147,56 +103,57 @@ footer {
     background-color: var(--hover-color);
     border: 1px solid var(--border-color);
     border-radius: 20px;
-    padding: 7px 12px; /* Decreased from 7px 13px */
+    padding: 6px 12px;
     cursor: pointer;
     transition: all 0.2s ease;
+    font-size: 14px; /* Increased font size */
 }
 
 .category-option:hover {
     background-color: var(--primary-color);
     color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .category-option input[type="checkbox"] {
-    margin-right: 6px; /* Decreased from 7px */
+    margin-right: 6px;
     cursor: pointer;
 }
 
-.category-option label {
-    cursor: pointer;
-    font-size: 12px; /* Decreased from 12.5px */
-    font-weight: 500;
-}
-
-.category-option:hover label {
+button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: var(--primary-color);
     color: white;
+    border: none;
+    border-radius: 9999px;
+    cursor: pointer;
+    font-size: 16px; /* Increased font size */
+    font-weight: bold;
+    transition: background-color 0.2s;
 }
 
-textarea[name="postCont"] {
-    resize: none;
+button:hover {
+    background-color: #1991da;
 }
 
 .button-link {
+    text-decoration: none;
+    color: white;
     display: block;
     width: 100%;
-    text-decoration: none;
-}
-
-.button-link button {
-    width: 100%;
     height: 100%;
-    border: none;
-    background: none;
-    padding: 8px 16px;
-    cursor: pointer;
-    color: inherit;
-    font-size: inherit;
-    text-align: left;
 }
 
 #charCount {
-    font-size: 13px; /* Matches the font size of textarea and input elements */
-    color: var(--text-color); /* Matches the text color used elsewhere */
+    font-size: 13px; /* Increased font size */
+    color: var(--secondary-text-color);
+    display: block;
+    margin-bottom: 5px;
+}
+
+@media (max-width: 650px) {
+    .container {
+        max-width: 95%;
+    }
 }

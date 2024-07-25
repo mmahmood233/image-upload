@@ -1,1 +1,2 @@
-2024/07/25 23:04:12 Starting server on :8800
+2024/07/25 23:08:08 Starting server on :8800
+2024/07/25 23:10:37 http: superfluous response.WriteHeader call from forum/functions.CreatePost (post.go:99)

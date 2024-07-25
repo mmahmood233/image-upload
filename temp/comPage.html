@@ -4,55 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="com.css">
-    <title>Login Page</title>
+    <title>Create Post</title>
 </head>
 <body>
     <header>
         <h1>Web Forum</h1>
     </header>
-    <center>
-        <div class="container">
-            <div class="post">
-                <h2>Create a Post</h2>
-                {{if .ErrorMessage}}
-                <p style="color: red;">{{.ErrorMessage}}</p>
-                {{end}}
-                <form action="/createP" method="post" enctype="multipart/form-data">
-                    <textarea name="postCont" placeholder="Post Content..."  id="postContent" required></textarea>
-                    <span id="charCount">0 characters/10000 characters</span>
-                    <div class="image-upload">
-                        <h3>Upload Image:</h3>
-                        <input type="file" name="image" accept="image/jpeg,image/png,image/gif">
-                    </div>
-                    <div class="category-options">
-                        <h3>Choose Categories:</h3>
-                        <label class="category-option">
-                            <input type="checkbox" name="catCont" value="Sports"> Sports
-                        </label>
-                        <label class="category-option">
-                            <input type="checkbox" name="catCont" value="News"> News
-                        </label>
-                        <label class="category-option">
-                            <input type="checkbox" name="catCont" value="Announcements"> Announcements
-                        </label>
-                    </div>
+    <div class="container">
+        <div class="post">
+            <h2>Create a Post</h2>
+            {{if .ErrorMessage}}
+            <p style="color: red;">{{.ErrorMessage}}</p>
+            {{end}}
+            <form action="/createP" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <textarea name="postCont" placeholder="Post Content..." id="postContent" required></textarea>
+                    <span id="charCount">0/10000 characters</span>
+                </div>
+                <div class="form-group image-upload">
+                    <h3>Upload Image:</h3>
+                    <input type="file" name="image" accept="image/jpeg,image/png,image/gif">
+                </div>
+                <div class="form-group category-options">
+                    <h3>Choose Categories:</h3>
+                    <label class="category-option"><input type="checkbox" name="catCont" value="Sports"> Sports</label>
+                    <label class="category-option"><input type="checkbox" name="catCont" value="News"> News</label>
+                    <label class="category-option"><input type="checkbox" name="catCont" value="Announcements"> Announcements</label>
+                </div>
+                <div class="form-group">
                     <button type="submit">Create Post</button>
                     <button><a href="/registered" class="button-link">Back</a></button>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
-    </center>
+    </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const postContent = document.getElementById('postContent');
             const charCount = document.getElementById('charCount');
             const maxChars = 10000;
             let warningShown = false;
-    
+            
             function updateCharCount() {
                 const chars = postContent.value.length;
-                charCount.textContent = chars + ' characters/' + maxChars + ' characters';
-    
+                charCount.textContent = chars + '/10000 characters';
+                
                 if (chars === maxChars && !warningShown) {
                     warningShown = true;
                     if (!confirm("You've reached the character limit. Are you sure you want to proceed?")) {
@@ -63,10 +59,10 @@
                     warningShown = false;
                 }
             }
-    
+            
             postContent.addEventListener('input', updateCharCount);
             updateCharCount(); // Initial count
-    
+            
             document.querySelector('form').addEventListener('submit', function(e) {
                 const chars = postContent.value.length;
                 if (chars > maxChars) {
@@ -75,6 +71,6 @@
                 }
             });
         });
-    </script>       
+    </script>
 </body>
 </html>
