@@ -72,7 +72,7 @@ textarea[name="postCont"] {
     border: 1px solid var(--border-color);
     border-radius: 10px;
     font-size: 14px; /* Increased font size */
-    resize: vertical;
+    resize: none;
     min-height: 100px; /* Increased min-height */
 }
 
