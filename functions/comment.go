@@ -17,7 +17,7 @@ func CreateComment(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
-		}
+		} 
 
 		userID := session.UserID
 
@@ -62,6 +62,8 @@ func CreateComment(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 
 		http.Redirect(w, r, "/main", http.StatusSeeOther)
 		return
+	} else {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 	}
 }
 

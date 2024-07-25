@@ -27,7 +27,7 @@ func CreatePost(w http.ResponseWriter, r *http.Request, db *sql.DB) {
         if err != nil {
             http.Error(w, err.Error(), http.StatusInternalServerError)
             return
-        }
+        } 
 
         postContent := strings.TrimSpace(r.FormValue("postCont"))
         if postContent == "" {
@@ -93,6 +93,10 @@ func CreatePost(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 
     // Render the template with the data
     tmpl.Execute(w, data)
+
+    if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)   
+    }
 }
 
 func SaveUploadedImage(r *http.Request) (string, error) {

@@ -70,7 +70,7 @@ func HandleReg(w http.ResponseWriter, r *http.Request, db *sql.DB) {
                 http.Redirect(w, r, "/doLogin", http.StatusSeeOther)
             }
         }
-    }
+    } 
 
     // Parse the HTML template file
     tmpl, err := template.ParseFiles("temp/regPage.html")
@@ -87,4 +87,8 @@ func HandleReg(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 
     // Render the template with the data
     tmpl.Execute(w, data)
+
+    if r.Method != http.MethodPost {
+        http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+    }
 }

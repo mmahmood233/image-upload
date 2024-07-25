@@ -81,5 +81,7 @@ func FeedbackHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(map[string]string{"status": "success"})
-	} 
+	} else {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+	}
 }

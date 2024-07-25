@@ -18,7 +18,8 @@
                 <p style="color: red;">{{.ErrorMessage}}</p>
                 {{end}}
                 <form action="/createP" method="post" enctype="multipart/form-data">
-                    <textarea name="postCont" placeholder="Post Content..." required maxlength="500"></textarea>
+                    <textarea name="postCont" placeholder="Post Content..."  id="postContent" required></textarea>
+                    <span id="charCount">0 characters/10000 characters</span>
                     <div class="image-upload">
                         <h3>Upload Image:</h3>
                         <input type="file" name="image" accept="image/jpeg,image/png,image/gif">
@@ -41,5 +42,39 @@
             </div>
         </div>
     </center>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const postContent = document.getElementById('postContent');
+            const charCount = document.getElementById('charCount');
+            const maxChars = 10000;
+            let warningShown = false;
+    
+            function updateCharCount() {
+                const chars = postContent.value.length;
+                charCount.textContent = chars + ' characters/' + maxChars + ' characters';
+    
+                if (chars === maxChars && !warningShown) {
+                    warningShown = true;
+                    if (!confirm("You've reached the character limit. Are you sure you want to proceed?")) {
+                        postContent.value = postContent.value.slice(0, -1);
+                        updateCharCount();
+                    }
+                } else if (chars < maxChars) {
+                    warningShown = false;
+                }
+            }
+    
+            postContent.addEventListener('input', updateCharCount);
+            updateCharCount(); // Initial count
+    
+            document.querySelector('form').addEventListener('submit', function(e) {
+                const chars = postContent.value.length;
+                if (chars > maxChars) {
+                    e.preventDefault();
+                    alert("Can't create a post with more than 10000 characters.");
+                }
+            });
+        });
+    </script>       
 </body>
 </html>

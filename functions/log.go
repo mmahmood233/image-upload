@@ -41,7 +41,7 @@ func HandleLog(w http.ResponseWriter, r *http.Request, db *sql.DB) {
             http.Redirect(w, r, "/main", http.StatusSeeOther)
             return
         }
-    }
+    } 
 
     // Parse the HTML template file
     tmpl, err := template.ParseFiles("temp/loginPage.html")
@@ -58,6 +58,10 @@ func HandleLog(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 
     // Render the template with the data
     tmpl.Execute(w, data)
+
+    if r.Method != http.MethodPost {
+        http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+    }
 }
 
 func Logout(w http.ResponseWriter, r *http.Request, db *sql.DB) {
