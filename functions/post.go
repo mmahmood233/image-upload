@@ -2,7 +2,7 @@ package forum
 
 import (
     "net/http"
-    "strings"
+    // "strings"
     "time"
     "log"
     "html/template"
@@ -29,8 +29,9 @@ func CreatePost(w http.ResponseWriter, r *http.Request, db *sql.DB) {
             return
         } 
 
-        postContent := strings.TrimSpace(r.FormValue("postCont"))
-        if postContent == "" {
+        postContent := (r.FormValue("postCont"))
+
+        if postContent == "" || containsOnlySpacesAndNewlines(postContent) {
             errorMessage = "No post content"
         } else {
             categoryNames := r.Form["catCont"]
@@ -217,4 +218,16 @@ func GetPosts(db *sql.DB) ([]struct {
     }
 
     return postsWithUsers, nil
+}
+
+func containsOnlySpacesAndNewlines(s string) bool {
+    if len(s) == 0 {
+        return true  
+    }
+    for _, char := range s {
+        if char != ' ' && char != '\n' && char != '\r' {
+            return false
+        }
+    }
+    return true
 }

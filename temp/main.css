@@ -535,12 +535,30 @@ button a::after {
 }
 
 .post img {
-  max-width: 150px;
+  max-width: 50px;  /* Significantly reduced from previous values */
+  max-height: 400px;
   width: auto;
   height: auto;
-  border: 2px solid var(--border-color);
-  border-radius: 8px;
-  margin: 10px 0;
-  display: block;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  margin: 5px 10px 5px 0;  /* Added right margin for text wrapping */
+  display: inline-block;
+  vertical-align: middle;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  object-fit: cover;  /* Ensures the image covers the area without distortion */
 }
 
+/* Hover effect for better visibility */
+.post img:hover {
+  max-width: 120px; 
+  transition: max-width 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .post img {
+      max-width: 50px;
+  }
+  .post img:hover {
+      max-width: 100px;
+  }
+}
