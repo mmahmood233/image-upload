@@ -1,0 +1,93 @@
+:root {
+    --primary-color: #1da1f2;
+    --background-color: #ffffff;
+    --text-color: #14171a;
+    --secondary-text-color: #657786;
+    --border-color: #e1e8ed;
+    --hover-color: #f5f8fa;
+    --error-color: #e0245e;
+}
+
+body {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.3;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px; /* Decreased from 500px */
+    margin: 0 auto;
+    padding: 10px; /* Decreased from 15px */
+}
+
+header {
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 10px 0; /* Decreased from 12px */
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 18px; /* Decreased from 20px */
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.error-container {
+    background-color: var(--background-color);
+    padding: 20px; /* Decreased from 25px */
+    margin-top: 30px; /* Decreased from 40px */
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.error-container h2 {
+    color: var(--error-color);
+    margin-bottom: 10px; /* Decreased from 15px */
+    font-size: 16px; /* Decreased from 18px */
+}
+
+.error-container p {
+    color: var(--secondary-text-color);
+    margin-bottom: 20px; /* Decreased from 25px */
+}
+
+button {
+    width: 160px; /* Decreased from 180px */
+    padding: 8px; /* Decreased from 10px */
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    cursor: pointer;
+    font-size: 12px; /* Decreased from 14px */
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #1991da;
+}
+
+button a {
+    text-decoration: none;
+    color: white;
+}
+
+footer {
+    background-color: var(--background-color);
+    color: var(--secondary-text-color);
+    text-align: center;
+    padding: 6px 0; /* Decreased from 8px */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid var(--border-color);
+}

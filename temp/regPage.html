@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reg.css">
+    <title>Register - Twitter</title>
+</head>
+<body>
+    <header>
+        <h1>Web Forum</h1>
+    </header>
+
+    <div class="main-content">
+        <div class="register-container">
+            <h2>Register</h2>
+            {{if .ErrorMessage}}
+            <div class="error-message">{{.ErrorMessage}}</div>
+            {{end}}
+            <form action="/doRegister" method="post">
+                <input type="text" name="username" placeholder="Username" required maxlength="75">
+                <input type="email" name="email" placeholder="Email" required maxlength="75">
+                <input type="password" name="password" placeholder="Password" required maxlength="75">
+                <button type="submit" class="standard-button">Register</button>
+                <a href="/" class="button-link"><button type="button" class="standard-button">Back</button></a>
+            </form>
+            <p class="account-query">Already have an account? <a href="/doLogin">Login</a></p>
+        </div>
+    </div>
+</body>
+</html>

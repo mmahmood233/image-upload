@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="error.css">
+    <title>Error Page</title>
+</head>
+<body>
+    <header>
+        <h1>Web Forum</h1>
+    </header>
+
+    <div class="container">
+        <div class="error-container">
+            <h2>{{.ErrStr}}</h2>
+            <h3>Oops!</h3>
+            <h3>SOMETHING WENT WRONG</h3>
+            <h3 style="font-size: 40px;">😨</h3> <!-- Decreased from 45px -->
+            <h3>Please go back to the main page</h3>
+            <h3><a href="/">Main Page</a></h3>
+        </div>
+    </div>
+</body>
+</html>
